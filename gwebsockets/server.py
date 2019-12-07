@@ -122,7 +122,7 @@ class Session(GObject.GObject):
                     break
         else:
             self._request.write(data.decode('utf-8'))
-            if data.endswith("\r\n\r\n"):
+            if data.decode('utf-8').endswith("\r\n\r\n"):
                 self._do_handshake()
 
         self.read_data()
